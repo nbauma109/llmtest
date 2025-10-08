@@ -21,4 +21,4 @@ jobs:
 
       - name: Run test prompt
         run: |
-          ollama run qwen2.5-coder:3b "Hello! Just say hi."
+          ollama run qwen2.5-coder:3b "write a random JAVA code sample"
