@@ -1,0 +1,24 @@
+name: Test qwen2.5-coder-3b locally
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-model:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install Ollama
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          ollama --version
+
+      - name: Pull model
+        run: |
+          ollama pull qwen2.5-coder:3b
+
+      - name: Run test prompt
+        run: |
+          ollama run qwen2.5-coder:3b "Hello! Just say hi."
